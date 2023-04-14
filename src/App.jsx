@@ -1,7 +1,9 @@
+import Starter from './tutorial/01-useState/05-useState-gotcha';
+
 function App() {
   return (
     <div className="container">
-      <h2>advanced react</h2>
+      <Starter />
     </div>
   );
 }
