@@ -1,12 +1,9 @@
-import Navbar from './tutorial/04-project-structure/Navbar';
-import { Home, About } from './tutorial/04-project-structure/Pages';
+import List from './tutorial/05-leverage-javascript/List';
 
 function App() {
   return (
     <div className="container">
-      <Navbar />
-      <Home />
-      <About />
+      <List />
     </div>
   );
 }
