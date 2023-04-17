@@ -1,4 +1,4 @@
-import Navbar from './tutorial/09-context-api/context/Navbar';
+import Navbar from './tutorial/10-useReducer/01-useReducer';
 
 function App() {
   return (
