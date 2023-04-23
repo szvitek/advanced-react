@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useState } from 'react';
 
 const url = 'https://api.github.com/users';
@@ -6,17 +6,19 @@ const url = 'https://api.github.com/users';
 const FetchData = () => {
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(url);
-      const json = await response.json();
+  // good usecase for useCallback, if we need a function outside of useEffect
+  // and we need to pass it to useEffect as a dependency
+  const fetchData = useCallback(async () => {
+    const response = await fetch(url);
+    const json = await response.json();
 
-      // set state with the result
-      setUsers(json);
-    };
-
-    fetchData().catch(console.error);
+    // set state with the result
+    setUsers(json);
   }, []);
+
+  useEffect(() => {
+    fetchData().catch(console.error);
+  }, [fetchData]);
 
   return (
     <section>
